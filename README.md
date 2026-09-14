@@ -1,5 +1,7 @@
 # Paymatch
 
+[Open Paymatch](https://pariraipro.github.io/payment-reconciliation-tool/)
+
 A standalone INR payment reconciliation app. Open the published site or run `node server.cjs` and visit the printed local address. No dependency install or build is required. Run calculation checks with `node --test tests/engine.test.mjs`.
 
 ## Workflow
@@ -39,3 +41,7 @@ Recognized successful statuses: captured, paid, success, successful, succeeded, 
 Pure calculation and CSV tests cover split payments, exact one-paisa differences, status handling, refunds, missing data, duplicate IDs, invalid money, CSV quoting, formula-safe output, and summary consistency. Static entrypoints, module syntax, references, and local HTTP response are checked. Browser interaction/visual QA was not requested. WebMCP tools are feature-detected; live browser WebMCP contract verification was unavailable in this run.
 
 Three page-scoped WebMCP tools reuse visible actions: `read_reconciliation_summary`, `run_reconciliation`, and `open_reconciliation_record`. Monetary tool results use integer INR paise.
+
+## Publishing
+
+The public website is served by GitHub Pages. Pushes to `main` run `.github/workflows/pages.yml`, which publishes the static `dist` directory. Assets and JavaScript imports use relative paths so they work beneath the repository URL. No account or sign-in is required to use the demo.
